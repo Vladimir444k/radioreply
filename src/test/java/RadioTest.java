@@ -149,7 +149,7 @@ class RadioTest {
     void shouldVolumeIsMin() {
         Radio radio = new Radio();
 
-        radio.setCurrentStation(-1);
+        radio.setCurrentVolume(-1);
 
         int expected = 0;
 
@@ -161,7 +161,7 @@ class RadioTest {
     void shouldVolumeIsMax() {
         Radio radio = new Radio();
 
-        radio.setCurrentStation(101);
+        radio.setCurrentVolume(101);
 
         int expected = 0;
 
