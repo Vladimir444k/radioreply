@@ -168,4 +168,66 @@ class RadioTest {
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    void stationCountTest() {
+        Radio radio = new Radio(10);
+
+        radio.setCurrentStation(9);
+
+        int expected = 9;
+
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void stationCountIsMax() {
+        Radio radio = new Radio(10);
+
+        radio.setCurrentStation(10);
+
+        int expected = 0;
+
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void stationCountIsMin() {
+        Radio radio = new Radio(10);
+
+        radio.setCurrentStation(-1);
+
+        int expected = 0;
+
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void stationNextUp() {
+        Radio radio = new Radio(10);
+
+        radio.setCurrentStation(0);
+        radio.nextStation();
+
+        int expected = 9;
+
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void stationPrevDown() {
+        Radio radio = new Radio(10);
+
+        radio.setCurrentStation(9);
+        radio.prevStation();
+
+        int expected = 0;
+
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
 }
